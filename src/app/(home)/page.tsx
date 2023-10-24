@@ -2,6 +2,7 @@
 "use client";
 
 import Image from "next/image";
+import Categories from "./components/categories";
 
 
 export default function Home() {
@@ -15,6 +16,10 @@ export default function Home() {
         sizes="100vw"
         alt="Até 55% de desconto somente nesse mês"
       />
+
+      <div className="mt-7">
+        <Categories />
+      </div>
     </div>
   )
 }
