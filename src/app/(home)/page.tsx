@@ -1,13 +1,20 @@
-
-"use client";
-
 import Image from "next/image";
 import Categories from "./components/categories";
+import ProductList from "./components/productList";
+import { prismaClient } from "@/lib/prisma";
 
 
-export default function Home() {
+export default async function Home() {
+  const deals = await prismaClient.product.findMany({
+    where: {
+      discountPercentage: {
+        gt: 0,
+      }
+    }
+  });
+
   return (
-    <div className="p-5">
+    <div>
       <Image 
         src="/banner-home-01.png"
         height={0}
@@ -17,8 +24,12 @@ export default function Home() {
         alt="Até 55% de desconto somente nesse mês"
       />
 
-      <div className="mt-7">
+      <div className="mt-7 p-4">
         <Categories />
+      </div>
+
+      <div className="mt-7">
+        <ProductList products={deals} />
       </div>
     </div>
   )
