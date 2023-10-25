@@ -4,7 +4,13 @@ import { Badge } from "@/components/ui/badge";
 import { computeProductTotalPrice } from "@/helpers/product";
 import { prismaClient } from "@/lib/prisma";
 
-const CategoryProducts = async ({params}: any) => {
+interface CategoryProductsProps {
+  params: {
+    slug: string;
+  }
+}
+
+const CategoryProducts = async ({params}: CategoryProductsProps) => {
   const category = await prismaClient.category.findFirst({
     where: {
       slug: params.slug
