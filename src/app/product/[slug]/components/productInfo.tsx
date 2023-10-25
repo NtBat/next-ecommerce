@@ -3,9 +3,7 @@
 import { Button } from "@/components/ui/button";
 import DiscountBadge from "@/components/ui/discountBadge";
 import { ProductWithTotalPriceProps } from "@/helpers/product";
-// import DiscountBadge from "@/components/ui/discount-badge";
-// import { ProductWithTotalPrice } from "@/helpers/product";
-// import { CartContext } from "@/providers/cart";
+import { CartContext } from "@/providers/cart";
 import { ArrowLeftIcon, ArrowRightIcon, TruckIcon } from "lucide-react";
 import { useContext, useState } from "react";
 
@@ -16,7 +14,7 @@ interface ProductInfoProps {
 const ProductInfo = ({ product }: ProductInfoProps) => {
   const [quantity, setQuantity] = useState(1);
 
-  // const { addProductToCart } = useContext(CartContext);
+  const { addProductToCart } = useContext(CartContext);
 
   const handleDecreaseQuantityClick = () => {
     setQuantity((prev) => (prev === 1 ? prev : prev - 1));
@@ -26,9 +24,9 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
     setQuantity((prev) => prev + 1);
   };
 
-  // const handleAddToCartClick = () => {
-  //   addProductToCart({ ...product, quantity });
-  // };
+  const handleAddToCartClick = () => {
+    addProductToCart({ ...product, quantity });
+  };
 
   return (
     <div className="flex flex-col px-5">
@@ -76,7 +74,7 @@ const ProductInfo = ({ product }: ProductInfoProps) => {
 
       <Button
         className="mt-8 font-bold uppercase"
-        // onClick={handleAddToCartClick}
+        onClick={handleAddToCartClick}
       >
         Adicionar ao carrinho
       </Button>
