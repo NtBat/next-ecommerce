@@ -45,3 +45,5 @@ Todo:
 [] Favorites
 [] Search bar and search page
 [] Attributes
+[] Translate to english
+[] Change font family
