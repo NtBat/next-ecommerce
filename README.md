@@ -47,3 +47,6 @@ Todo:
 [] Attributes
 [] Translate to english
 [] Change font family
+[] favicon
+[] title
+[] Add to cart open mini cart

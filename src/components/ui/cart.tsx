@@ -16,7 +16,7 @@ import CartItem from "./cartItem";
 const Cart = () => {
   const { data } = useSession();
 
-  const { products,  } = useContext(CartContext);
+  const { products, subtotal, total, totalDiscount  } = useContext(CartContext);
 
   const handleFinishPurchaseClick = async () => {
     if (!data?.user) {
@@ -72,7 +72,7 @@ const Cart = () => {
 
           <div className="flex items-center justify-between text-xs">
             <p>Subtotal</p>
-            {/* <p>R$ {subtotal.toFixed(2)}</p> */}
+            <p>R$ {subtotal.toFixed(2)}</p>
           </div>
 
           <Separator />
@@ -86,14 +86,14 @@ const Cart = () => {
 
           <div className="flex items-center justify-between text-xs">
             <p>Descontos</p>
-            {/* <p>- R$ {totalDiscount.toFixed(2)}</p> */}
+            <p>- R$ {totalDiscount.toFixed(2)}</p>
           </div>
 
           <Separator />
 
           <div className="flex items-center justify-between text-sm font-bold">
             <p>Total</p>
-            {/* <p>R$ {total.toFixed(2)}</p> */}
+            <p>R$ {total.toFixed(2)}</p>
           </div>
 
           <Button
