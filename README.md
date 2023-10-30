@@ -50,3 +50,4 @@ Todo:
 [] favicon
 [] title
 [] Add to cart open mini cart
+[] add cart quantity on header
