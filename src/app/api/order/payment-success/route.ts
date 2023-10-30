@@ -32,14 +32,14 @@ export const POST = async (request: Request) => {
     );
 
     // ATUALIZAR PEDIDO
-    await prismaClient.order.update({
-      where: {
-        id: session.metadata.orderId,
-      },
-      data: {
-        status: "PAYMENT_CONFIRMED",
-      },
-    });
+    // await prismaClient.order.update({
+    //   where: {
+    //     id: session.metadata.orderId,
+    //   },
+    //   data: {
+    //     status: "PAYMENT_CONFIRMED",
+    //   },
+    // });
   }
 
   return NextResponse.json({ received: true });
