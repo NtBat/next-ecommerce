@@ -12,6 +12,7 @@ import { Button } from "./button";
 // import { createOrder } from "@/actions/order";
 import { useSession } from "next-auth/react";
 import CartItem from "./cartItem";
+import { ScrollArea } from "./scroll-area";
 
 const Cart = () => {
   const { data } = useSession();
@@ -48,7 +49,7 @@ const Cart = () => {
       </Badge>
 
       <div className="flex h-full max-h-full flex-col gap-5 overflow-hidden">
-        {/* <ScrollArea className="h-full"> */}
+        <ScrollArea className="h-full">
           <div className="flex h-full flex-col gap-8">
             {products.length > 0 ? (
               products.map((product) => (
@@ -63,7 +64,7 @@ const Cart = () => {
               </p>
             )}
           </div>
-        {/* </ScrollArea> */}
+        </ScrollArea>
       </div>
 
       {products.length > 0 && (
