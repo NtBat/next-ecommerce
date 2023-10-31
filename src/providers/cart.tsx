@@ -36,9 +36,14 @@ export const CartContext = createContext<ICartContext>({
 });
 
 const CartProvider = ({ children }: {children: ReactNode}) => {
-  const [products, setProducts] = useState<CartProduct[]>(
-    JSON.parse(localStorage.getItem("@ntbatista-store/cart-products") || "[]"),
-  );
+  const getInitialProducts = () => {
+    if (typeof window !== "undefined") {
+      return JSON.parse(localStorage.getItem("@ntbatista-store/cart-products") || "[]");
+    }
+    return [];
+  }
+
+  const [products, setProducts] = useState<CartProduct[]>(getInitialProducts);
 
   useEffect(() => {
     setProducts(
