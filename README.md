@@ -55,3 +55,4 @@ Todo:
 [] tests
 [] page success payment
 [] page fail payment
+[] add skeleton
